@@ -14,39 +14,39 @@ class User(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String(50), nullable=False)
     last_name = Column(String(50), nullable=False)
-    email= Column(String(50), nullable=False)
+    email = Column(String(50), nullable=False)
     password = Column(String(50), nullable=False)
     subscription_date = Column(String(50), nullable=False)
 
-class Planets(Base):
+class Planet(Base):
     __tablename__ = 'planet'
     id = Column(Integer, primary_key=True)
-    name = Column(String(50), nulllable=False)
+    name = Column(String(50), nullable=False)
     climate = Column(String(20))
     diametro = Column(Integer)
-    terreno = Column (String(20))
-    url = Column (String(20))
+    terrain = Column(String(20))
+    url = Column(String(20))
 
 class Character(Base):
-    __tablename__ = 'characters'
+    __tablename__ = 'character'
     id = Column(Integer, primary_key=True)
-    name = Column(String(50), nulllable=False)
-    gender = Column(Integer(20))
-    eye_colour = Column (String(20))
-    species = Column (String(20))
+    name = Column(String(50), nullable=False)
+    gender = Column(Integer)
+    eye_colour = Column(String(20))
+    species = Column(String(20))
     movies = Column(String(20))
 
 class Characters_Favorites(Base):
     __tablename__ = 'characters_favorites'
     id = Column(Integer, primary_key=True)
-    user_id = Column(Integer(50), ForeignKey('user.id'))
-    character_id = Column(Integer(20), ForeignKey('character.id'))
+    user_id = Column(Integer, ForeignKey('user.id'))
+    character_id = Column(Integer, ForeignKey('character.id'))
 
-class Planets_Favourites(Base):
-    __tablename__ = 'planets_favourites'
+class Planets_Favorites(Base):
+    __tablename__ = 'planets_favorites'
     id = Column(Integer, primary_key=True)
-    user_id = Column(Integer(50), ForeignKey('user.id'))
-    planet_id = Column(Integer(20), ForeignKey('planet.id'))
+    user_id = Column(Integer, ForeignKey('user.id'))
+    planet_id = Column(Integer, ForeignKey('planet.id'))
     
 
 
